@@ -1,5 +1,5 @@
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        Queue<String> antrianRS = new ArrayDeque();
+        List<String> antrianRS = new ArrayList<>();
         String pasien;
 
         while (true) {
