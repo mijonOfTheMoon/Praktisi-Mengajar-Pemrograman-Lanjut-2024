@@ -1,5 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
@@ -7,29 +7,66 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner input = new Scanner(System.in);
-        List<String> antrianRS = new ArrayList<>();
-        String pasien;
+        Queue<String> antrian = new ArrayDeque<>();
+        String menu, pasien;
+        int nomor = 1;
 
-        while (true) {
-            System.out.print("Masukkan nama pasien (q untuk keluar): ");
-            pasien = input.nextLine();
-            if (pasien.equals("q")) {
-                break;
-            } else {
-                if (pasien.isEmpty()) {
+        do {
+
+            System.out.println("==========================");
+            System.out.println("Sistem Antrian Rumah Sakit");
+            System.out.println("==========================");
+            System.out.println("1. Tambah Antrian Pasien");
+            System.out.println("2. Lihat Antrian Pasien");
+            System.out.println("3. Panggil Pasien");
+            System.out.println("4. Keluar");
+            System.out.println("==========================");
+
+            do {
+                System.out.print("Pilih Menu Tujuan (1-4): ");
+            } while (!(menu = input.nextLine()).matches("[1-4]"));
+
+            switch (menu) {
+                case "1":
+                    do {
+                        System.out.println("==========================");
+                        System.out.print("Masukkan Nama Pasien: ");
+                    } while ((pasien = input.nextLine()).isEmpty());
+                    antrian.offer(pasien);
+                    System.out.println("==========================");
+                    System.out.println("Pasien Berhasil Ditambahkan ke dalam Antrian");
                     continue;
-                }
-                antrianRS.add(pasien);
+                case "2":
+                    if (antrian.isEmpty()) {
+                        System.out.println("==========================");
+                        System.out.println("Antrian Kosong");
+                    } else {
+                        System.out.println("==========================");
+                        System.out.println("Daftar Antrian Pasien");
+                        System.out.println("==========================");
+                        int no = nomor;
+                        for (String queue : antrian) {
+                            System.out.println(no++ + ". " + queue);
+                        }
+                    }
+                    continue;
+                case "3":
+                    if (antrian.isEmpty()) {
+                        System.out.println("==========================");
+                        System.out.println("Antrian Kosong");
+                    } else {
+                        nomor++;
+                        System.out.println("==========================");
+                        System.out.println("Pasien Selanjutnya: " + antrian.poll() +  " Silahkan Menuju Ruang Periksa");
+                    }
+                    continue;
+                case "4":
+                    input.close();
+                    break;
             }
-        }
 
-        System.out.println("\nAntrian Pasien Saat Ini\n");
-
-        int antrian = 0;
-        for (String nama : antrianRS) {
-            System.out.println("Pasien no." + (antrian += 1) + ": " + nama);
-        }
-
+        } while (!menu.equals("4"));
+        
     }
 
 }
