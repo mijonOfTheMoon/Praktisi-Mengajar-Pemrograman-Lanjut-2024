@@ -2,7 +2,7 @@
 
 Collection adalah suatu objek yang biasanya dibuat untuk mengumpulkan, menyimpan, dan memanipulasi kumpulan data. Java menyediakan banyak class generic yang bisa langsung digunakan dengan tipe data apapun. Berikut adalah gambar hirarki pada Java Collection.
 
-# ![Hirarki Java Collection](hirarki.jpg)
+![Hirarki Java Collection](hirarki.jpg)
 
 ## Interface Iterable dan Iterator
 
