@@ -10,7 +10,7 @@ Hirarki paling atas ditempati oleh interface Iterable. Dengan kata lain, interfa
 
 Sesuai namanya, iterable, interface ini digunakan hanya agar semua collection di Java dapat melakukan for-each loop. Hal ini memungkinkan dengan adanya bantuan interface Iterator. Sebelum adanya for-each loop, Iterator ini umum digunakan dengan contoh kode seperti berikut.
 
-```Java Contoh Kode Iterator
+```Java
 Iterator<String> iterator = names.iterator();
 
 while (iterator.hasNext()) {
