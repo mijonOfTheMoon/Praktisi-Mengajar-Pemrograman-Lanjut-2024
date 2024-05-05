@@ -31,19 +31,19 @@ Interface List adalah salah satu turunan dari interface Collection. List juga di
 
 ArrayList dan LinkedList berada di bawah hirarki Interface List. Keduanya adalah bentuk implementasi class dari interface List. Perbedaan jelas pada keduanya adalah sistem penyimpanan data yang digunakan. Jika LinkedList menggunakan Double Linked List untuk menyimpan datanya, class ArrayList menggunakan "Array dinamis". Array pada ArrayList memiliki panjang default 10 index. Ketika seluruh index telah terisi data, ArrayList akan membuat array baru dengan panjang index menyesuaikan jumlah setiap data yang baru masuk. Perbedaan selengkapnya antara ArrayList dan LinkedList terangkum pada tabel di bawah.
 
-| ArrayList | LinkedList |
-|-|-|
-| ArrayList menggunakan Array untuk menyimpan data. | LinkedList menggunakan Double Linked List untuk menyimpan data. |
-| Saat diinisiasi, ArrayList memiliki kapasitas default 10. |  Tidak ada kapasitas default pada LinkedList. Saat diinisiasi, LinkedList hanya membuat list kosongan |
-| ArrayList hanya mengimplementasikan interface List. | LinkedList mengimplementasikan interface List dan Deque. |
-| ArrayList lebih cepat dalam melakukan get dan set. | LinkedList lebih cepat dalam melakukan add dan remove. |
+| ArrayList                                                 | LinkedList                                                                                           |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ArrayList menggunakan Array untuk menyimpan data.         | LinkedList menggunakan Double Linked List untuk menyimpan data.                                      |
+| Saat diinisiasi, ArrayList memiliki kapasitas default 10. | Tidak ada kapasitas default pada LinkedList. Saat diinisiasi, LinkedList hanya membuat list kosongan |
+| ArrayList hanya mengimplementasikan interface List.       | LinkedList mengimplementasikan interface List dan Deque.                                             |
+| ArrayList lebih cepat dalam melakukan get dan set.        | LinkedList lebih cepat dalam melakukan add dan remove.                                               |
 
 ## Interface Queue
 
 Interface Queue merupakan salah satu turunan dari Interface Collection yang menampung data secara berurutan. Lebih tepatnya, Queue adalah implementasi dari struktur data antrian First In First Out (FIFO). Interface Queue bisa langsung diimplementasikan melalui Priority Queue atau diimplementasikan menjadi ArrayDeque dan LinkedList melalui Interface Deque.
 
-| ArrayDeque | LinkedList | PriorityQueue |
-|-|-|-|
+| ArrayDeque         | LinkedList                     | PriorityQueue                                                         |
+| ------------------ | ------------------------------ | --------------------------------------------------------------------- |
 | Memanfaatkan Array | Menggunakan Double Linked List | Memanfaatkan Array dengan bantuan Interface Comparable dan Comparator |
 
 ## Interface Deque
@@ -62,6 +62,7 @@ for (var string = stack.pollLast(); string != null; string = stack.pollLast()) {
 ```
 
 ## Interface Set
+
 Interface Set juga merupakan salah satu implementasi dari Collection seperti halnya interface List. Tapi, yang menjadi pembeda antara List dan Set adalah duplikasi data. Tidak seperti List, interface Set tidak bisa memiliki data yang sama (duplikat). Set hanya memiliki method yang diturunkan dari Collection dengan menambahkan batasan larangan terhadap duplikasi data. Mengimplementasikan set bisa dilakukan melalui class-class turunan set seperti HashSet, LinkedHashSet, atau TreeSet.
 
 ## Interface Map
