@@ -1,7 +1,9 @@
 # Java Generic
+
 Generic adalah fitur yang mulai diperkenalkan di Java versi 5. Generic bertujuan untuk menyediakan fleksibilitas dalam menentukan tipe data tanpa harus melakukan type casting. Dengan adanya generic, suatu kode bisa digeneralisasi dan reusable. Pengimplementasian generic dilakukan dengan menambahkan parameter tipe data di suatu class atau method. Mengimplementasikan generic pada suatu class atau method akan membuat tipe datanya bebas diubah sesuai kebutuhan.
 
 ## Class Generic
+
 Seperti yang telah disebutkan sebelumnya, salah satu implementasi generic adalah menambahkan parameter tipe data pada class. Parameter tipe data bisa diberi nama apa saja. Namun, penamaan yang sesuai standar hanya menggunakan 1 karakter sesuai dengan jenisnya.
 
 - E = Elemen
@@ -13,64 +15,66 @@ Seperti yang telah disebutkan sebelumnya, salah satu implementasi generic adalah
 
 Perbedaan implementasi class konvensional dan generic dapat dilihat pada kedua kode berikut.
 
-### Class konvensional 
+### Class konvensional
+
 ```Java
 public class Konvensional {
-	
+
 	private string data;
-	
+
 	public string getData() {
 		return data;
 	}
-	
+
 	public void setData(String data) {
 		this.data = data
 	}
-	
+
 }
 ```
 
 ### Class generic
+
 ```Java
 public class Generic<T> {
-	
+
 	private T data;
-	
+
 	public T getData() {
 		return data;
 	}
-	
+
 	public void setData(T data) {
 		this.data = data
 	}
-	
+
 }
 ```
 
-Class generic juga memperbolehkan lebih dari satu tipe data. Nama parameter tipe data harus berbeda (T, U, V, dst). 
+Class generic juga memperbolehkan lebih dari satu tipe data. Nama parameter tipe data harus berbeda (T, U, V, dst).
 
 ```Java
 public class Generic<T, U> {
-	
+
 	private T data1;
 	private U data2;
-	
+
 	public T getData1() {
 		return data1;
 	}
-	
+
 	public void setData1(T data1) {
 		this.data1 = data1
 	}
-	
+
 	public U getData2() {
 		return data2;
 	}
-	
+
 	public void setData2(U data2) {
 		this.data2 = data2
 	}
-	
+
 }
 ```
 
@@ -86,12 +90,12 @@ public class generic {
 		}
 		System.out.println();
 	}
-	
+
 	public static void main(String[] args) {
 		Integer[] int = {1,2,3,4};
 		Double[] double = {1.1,2.2,3.3,4.4};
 		Character[] char = {'J','A','V','A'};
-		
+
 		printArray(int);
 		printArray(double);
 		printarray(char);
