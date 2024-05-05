@@ -61,6 +61,9 @@ for (var string = stack.pollLast(); string != null; string = stack.pollLast()) {
 }
 ```
 
+## Interface Set
+Interface Set juga merupakan salah satu implementasi dari Collection seperti halnya interface List. Tapi, yang menjadi pembeda antara List dan Set adalah duplikasi data. Tidak seperti List, interface Set tidak bisa memiliki data yang sama (duplikat). Set hanya memiliki method yang diturunkan dari Collection dengan menambahkan batasan larangan terhadap duplikasi data. Mengimplementasikan set bisa dilakukan melalui class-class turunan set seperti HashSet, LinkedHashSet, atau TreeSet.
+
 ## Interface Map
 
 Map adalah suatu objek yang memetakan sekumpulan pasangan data, antara key dan value. Setiap key yang berada di dalam map tidak boleh sama (duplikat) dan setiap key hanya bisa dipetakan kepada satu value. Map memiliki hirarkinya sendiri. Merujuk pada [situs dokumentasi resmi Oracle](https://docs.oracle.com/javase/8/docs/technotes/guides/collections/designfaq.html#a14), collection bukanlah map dan sebaliknya. Kurang masuk akal apabila map adalah turunan atau hasil extend dari collection.
