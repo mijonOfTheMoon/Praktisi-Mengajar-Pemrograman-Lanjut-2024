@@ -4,7 +4,7 @@ Exception Handling adalah mekanisme untuk menangani runtime error yang ringan (m
 
 Exception yang sering terjadi pada Bahasa pemrograman Java adalah:
 
-- Arithmetic Exception, Jika sebuah angka dibagi 0.
+- Arithmetic Exception, Jika suatu angka dibagi 0.
 - Null Pointer Exception, Jika object yang ingin diakses masih NULL.
 - Number Format Exception, Jika ingin melakukan casting tipe data string ke int.
 - IO Exception, Jika yang diminta adalah angka tapi diinput String
