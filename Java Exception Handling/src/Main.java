@@ -65,14 +65,14 @@ public class Main {
                     try {
                         System.out.println("==========================");
                         System.out.print("Masukkan Nomor Antrian: ");
-                        int nomor = input.nextInt();
+                        int nomorPanggilan = input.nextInt();
                         input.nextLine();
 
                         for (String queue : antrian) {
-                            int currentNomor = Integer.valueOf(queue.substring(0, queue.indexOf('.')));
-                            if (nomor == currentNomor) {
+                            int nomorQueue = Integer.valueOf(queue.substring(0, queue.indexOf('.')));
+                            if (nomorQueue == nomorPanggilan) {
                                 System.out.println("==========================");
-                                System.out.println("Pasien dengan nomor antrian " + currentNomor + " silahkan menuju ruang periksa");
+                                System.out.println("Pasien dengan nomor antrian " + nomorQueue + " silahkan menuju ruang periksa");
                                 antrian.remove(queue);
                                 continue loopingSampaiKeluar;
                             }
