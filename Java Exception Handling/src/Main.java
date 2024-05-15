@@ -57,8 +57,9 @@ public class Main {
                         System.out.println("==========================");
                         System.out.println("Antrian Kosong");
                     } else {
+                        pasien = antrian.poll();
                         System.out.println("==========================");
-                        System.out.println("Pasien selanjutnya: " + antrian.poll() + " silahkan menuju ruang periksa");
+                        System.out.println("Pasien selanjutnya:" + pasien.substring(pasien.indexOf(" ")) + " silahkan menuju ruang periksa");
                     }
                     continue;
                 case "4":
