@@ -122,8 +122,8 @@ public class Main {
                         System.out.println("File Berhasil Disimpan di " + daftarAntrian.getAbsolutePath());
                     } catch (IOException error) {
                         System.out.println(error);
-                        // System.out.println("==========================");
-                        // System.out.println("Gagal Menyimpan File di " + daftarAntrian.getAbsolutePath());
+                        System.out.println("==========================");
+                        System.out.println("Gagal Menyimpan File di " + daftarAntrian.getAbsolutePath());
                         continue;
                     }
 
