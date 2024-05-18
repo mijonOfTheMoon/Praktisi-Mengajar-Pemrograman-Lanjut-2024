@@ -81,7 +81,8 @@ public class Main {
                     } else {
                         pasien = antrian.poll();
                         System.out.println("==========================");
-                        System.out.println("Pasien selanjutnya: " + pasien.substring(pasien.indexOf("$") + 1, pasien.lastIndexOf("$"))
+                        System.out.println("Pasien selanjutnya: "
+                                + pasien.substring(pasien.indexOf("$") + 1, pasien.lastIndexOf("$"))
                                 + " silahkan menuju ruang periksa");
                     }
                     continue;
