@@ -131,14 +131,11 @@ public class Main {
                         System.out.print("Direktori tujuan (Downloads): ");
                         String dir = input.nextLine();
 
-                        String defaultFile = "Daftar Antrian Pasien.txt";
-                        String defaultDir = System.getProperty("user.home") + "/Downloads";
-
                         if (dir.isEmpty()) {
-                            dir = defaultDir;
+                            dir = System.getProperty("user.home") + "/Downloads";
                         }
                         if (namaFile.isEmpty()) {
-                            namaFile = defaultFile;
+                            namaFile = "Daftar Antrian Pasien.txt";
                         }
 
                         daftarAntrian = new File(dir, namaFile);
