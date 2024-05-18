@@ -1,6 +1,6 @@
 # Java Exception Handling
 
-Exception Handling adalah mekanisme untuk menangani runtime error yang ringan (mild error). Ketika terjadi error, normalnya Java akan berhenti dan menghasilkan pesan error. Istilah teknis untuk hal ini adalah exception, yaitu java akan melempar suatu error. Suatu exception direpresentasikan oleh sebuah objek yang menjelaskan exception tersebut.
+Exception Handling adalah mekanisme untuk menangani error yang ringan (mild error). Ketika terjadi error, normalnya Java akan berhenti dan menghasilkan pesan error. Istilah teknis untuk hal ini adalah exception, yaitu java akan melempar suatu error. Suatu exception direpresentasikan oleh sebuah objek yang menjelaskan exception tersebut.
 
 Exception yang sering terjadi di Java diantaranya adalah:
 
