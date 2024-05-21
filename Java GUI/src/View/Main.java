@@ -24,7 +24,6 @@ public class Main extends javax.swing.JFrame {
         
         initComponents();
         tabel = (DefaultTableModel) tabelAntrian.getModel();
-        callPasien.setVisible(false);
         tabelAntrian.getColumnModel().getColumn(0).setPreferredWidth(50);
         tabelAntrian.getColumnModel().getColumn(0).setMaxWidth(50);
         tabelAntrian.getColumnModel().getColumn(1).setPreferredWidth(50);
@@ -53,6 +52,10 @@ public class Main extends javax.swing.JFrame {
         tabelAntrian = new javax.swing.JTable();
         addPasien = new javax.swing.JButton();
         callPasien = new javax.swing.JButton();
+        resetAntrian = new javax.swing.JButton();
+        filter = new javax.swing.JComboBox<>();
+        exportTXT = new javax.swing.JButton();
+        nextPasien = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(100, 63, 65));
@@ -140,8 +143,8 @@ public class Main extends javax.swing.JFrame {
         tabelAntrian.setShowHorizontalLines(true);
         tabelAntrian.getTableHeader().setReorderingAllowed(false);
         tabelAntrian.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelAntrianMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tabelAntrianMouseReleased(evt);
             }
         });
         scrollPane.setViewportView(tabelAntrian);
@@ -156,10 +159,40 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        callPasien.setBackground(new java.awt.Color(0, 102, 102));
+        callPasien.setBackground(new java.awt.Color(208, 198, 198));
         callPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
         callPasien.setForeground(new java.awt.Color(255, 255, 255));
         callPasien.setText("Panggil Pasien");
+
+        resetAntrian.setBackground(new java.awt.Color(0, 102, 102));
+        resetAntrian.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        resetAntrian.setForeground(new java.awt.Color(255, 255, 255));
+        resetAntrian.setText("Reset Antrian");
+
+        filter.setBackground(new java.awt.Color(0, 102, 102));
+        filter.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        filter.setForeground(new java.awt.Color(255, 255, 255));
+        filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua", "Dalam Antrian", "Sedang Periksa", "Sudah Selesai" }));
+
+        exportTXT.setBackground(new java.awt.Color(0, 102, 102));
+        exportTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        exportTXT.setForeground(new java.awt.Color(255, 255, 255));
+        exportTXT.setText("Export ke TXT");
+        exportTXT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exportTXTActionPerformed(evt);
+            }
+        });
+
+        nextPasien.setBackground(new java.awt.Color(0, 102, 102));
+        nextPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        nextPasien.setForeground(new java.awt.Color(255, 255, 255));
+        nextPasien.setText("Panggil Selanjutnya");
+        nextPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextPasienActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout mainMenuLayout = new javax.swing.GroupLayout(mainMenu);
         mainMenu.setLayout(mainMenuLayout);
@@ -169,15 +202,22 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(heading)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainMenuLayout.createSequentialGroup()
+            .addGroup(mainMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainMenuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(callPasien)
+                .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(scrollPane)
+                    .addGroup(mainMenuLayout.createSequentialGroup()
+                        .addComponent(filter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addPasien))
-                    .addComponent(scrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE))
+                        .addComponent(exportTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(callPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(resetAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(nextPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
         mainMenuLayout.setVerticalGroup(
@@ -185,10 +225,14 @@ public class Main extends javax.swing.JFrame {
             .addGroup(mainMenuLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(heading)
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addPasien)
-                    .addComponent(callPasien))
+                    .addComponent(callPasien)
+                    .addComponent(filter)
+                    .addComponent(resetAntrian)
+                    .addComponent(nextPasien)
+                    .addComponent(exportTXT))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -198,7 +242,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 744, Short.MAX_VALUE)
+            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
             .addComponent(mainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -237,18 +281,25 @@ public class Main extends javax.swing.JFrame {
         
     }//GEN-LAST:event_addPasienActionPerformed
 
-    private void tabelAntrianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelAntrianMouseClicked
+    private void tabelAntrianMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelAntrianMouseReleased
         // TODO add your handling code here:
         for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
             if((boolean) tabelAntrian.getValueAt(i, 0)) {
-                callPasien.setVisible(true);
+                callPasien.setBackground(Color.decode("#006666"));
                 break;
             } else {
-                callPasien.setVisible(false);
+                callPasien.setBackground(Color.decode("#D0C6C6"));
             }    
         }
-            
-    }//GEN-LAST:event_tabelAntrianMouseClicked
+    }//GEN-LAST:event_tabelAntrianMouseReleased
+
+    private void exportTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTXTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exportTXTActionPerformed
+
+    private void nextPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPasienActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nextPasienActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,10 +317,14 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPasien;
     private javax.swing.JButton callPasien;
+    private javax.swing.JButton exportTXT;
+    private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel heading;
     private javax.swing.JButton logOut;
     private javax.swing.JLabel logoAplikasi;
     private javax.swing.JPanel mainMenu;
+    private javax.swing.JButton nextPasien;
+    private javax.swing.JButton resetAntrian;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JPanel sidebar;
     private javax.swing.JTable tabelAntrian;
