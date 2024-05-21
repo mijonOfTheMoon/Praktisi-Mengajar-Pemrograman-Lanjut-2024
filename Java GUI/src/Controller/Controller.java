@@ -4,10 +4,9 @@
  */
 package Controller;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 import Model.Pasien;
+import View.MainMenu;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,16 +14,37 @@ import Model.Pasien;
  */
 public class Controller {
     
-    Queue<Pasien> antrian = new ArrayDeque<>();
-    int nomor = 1;
+    private ArrayList<Pasien> antrian = new ArrayList<>();
+    private int nomor = 0;
+    
+    public Pasien getAntrian(int index) {
+        return antrian.get(index);
+    }
+
+    public void setAntrian(ArrayList<Pasien> antrian) {
+        this.antrian = antrian;
+    }
+
+    public int getNomor() {
+        return nomor;
+    }
+
+    public void setNomor(int nomor) {
+        this.nomor = nomor;
+    }
 
     public void addPasien(String nama) {
+        nomor++;
         Pasien pasien = new Pasien();
         pasien.setNama(nama);
         pasien.setNomor(nomor);
         pasien.setStatus("Dalam Antrian");
         pasien.setWaktu();
-        antrian.offer(pasien);
+        antrian.add(pasien);
+    }
+    
+    public void mulaiApp() {
+        new MainMenu().setVisible(true);
     }
     
 }

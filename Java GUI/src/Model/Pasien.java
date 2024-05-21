@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Model;
+import java.awt.Button;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,9 +14,10 @@ import java.util.Date;
 public class Pasien {
     
     private String nama;
-    private int nomor;
+    private String nomor;
     private String status;
     private String waktu;
+    private Button panggilPasien;
     
     public String getNama() {
         return nama;
@@ -25,12 +27,12 @@ public class Pasien {
         this.nama = nama;
     }
     
-    public int getNomor() {
+    public String getNomor() {
         return nomor;
     }
 
     public void setNomor(int nomor) {
-        this.nomor = nomor;
+        this.nomor = Integer.toString(nomor);
     }
 
     public String getStatus() {
@@ -47,6 +49,10 @@ public class Pasien {
 
     public void setWaktu() {
         this.waktu = new SimpleDateFormat("EEEEE, dd MMMM yyyy, HH:mm").format(new Date());
+    }
+    
+    public Button getPanggilPasien() {
+        return panggilPasien;
     }
     
 }
