@@ -33,39 +33,47 @@ public class Controller {
     }
     
     public void saveTXT(String status) {
-        JFileChooser saver = new JFileChooser();
-        saver.showSaveDialog(saver);
-        
-        File file = saver.getSelectedFile();
-        
 
-        try {
-            file.createNewFile();
-            FileOutputStream fileOutput = new FileOutputStream(file);
-            
-            fileOutput.write(System.lineSeparator().getBytes());
-            fileOutput.write("=============================== Daftar Antrian Pasien ===============================".getBytes());
-            fileOutput.write(System.lineSeparator().getBytes());
-            fileOutput.write("-------------------------------------------------------------------------------------".getBytes());
-            fileOutput.write(System.lineSeparator().getBytes());
-            fileOutput.write("| No. | Nama Pasien          | Waktu Pengambilan Nomor Antrian |       Status       |".getBytes());
-            fileOutput.write(System.lineSeparator().getBytes());
-            fileOutput.write("-------------------------------------------------------------------------------------".getBytes());
-            
-            for(Pasien pasien : antrian) {
-                if (pasien.getStatus().equals(status) || status.equals("Semua")) {
-                    fileOutput.write(System.lineSeparator().getBytes());
-                    fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
-                                            pasien.getNomor(),
-                                            pasien.getNama(),
-                                            pasien.getWaktu(),
-                                            pasien.getStatus()).getBytes());
+        File file = new File("Daftar Antrian Pasien.txt");
+        JFileChooser save = new JFileChooser();
+        save.setSelectedFile(file);
+
+        if (save.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+            file = save.getSelectedFile();
+            try {
+                file.createNewFile();
+                FileOutputStream fileOutput = new FileOutputStream(file);
+
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write("=============================== Daftar Antrian Pasien ==============================="
+                        .getBytes());
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write("-------------------------------------------------------------------------------------"
+                        .getBytes());
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write("| No. | Nama Pasien          | Waktu Pengambilan Nomor Antrian |       Status       |"
+                        .getBytes());
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write("-------------------------------------------------------------------------------------"
+                        .getBytes());
+
+                for (Pasien pasien : antrian) {
+                    if (pasien.getStatus().equals(status) || status.equals("Semua")) {
+                        fileOutput.write(System.lineSeparator().getBytes());
+                        fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
+                                pasien.getNomor(),
+                                pasien.getNama(),
+                                pasien.getWaktu(),
+                                pasien.getStatus()).getBytes());
+                    }
                 }
+
+                fileOutput.write("-------------------------------------------------------------------------------------"
+                        .getBytes());
+                fileOutput.close();
+            } catch (IOException ex) {
+                Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            fileOutput.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
