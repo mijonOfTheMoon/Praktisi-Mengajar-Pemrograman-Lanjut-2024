@@ -80,7 +80,7 @@ public class Main extends javax.swing.JFrame {
         logoutButton.setBackground(new java.awt.Color(255, 255, 255));
         logoutButton.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
         logoutButton.setForeground(new java.awt.Color(0, 0, 0));
-        logoutButton.setText("Logout");
+        logoutButton.setText("Keluar");
         logoutButton.setFocusPainted(false);
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
