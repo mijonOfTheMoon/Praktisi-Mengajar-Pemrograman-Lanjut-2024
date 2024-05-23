@@ -37,12 +37,12 @@ public class Pasien {
         return status;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public String getWaktu() {
         return waktu;
+    }
+    
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

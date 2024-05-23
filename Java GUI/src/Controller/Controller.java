@@ -29,6 +29,7 @@ public class Controller {
     
     public void flushPasien() {
         antrian.clear();
+        nomor = 0;
     }
     
     public void saveTXT(String status) {
@@ -52,21 +53,14 @@ public class Controller {
             fileOutput.write("-------------------------------------------------------------------------------------".getBytes());
             
             for(Pasien pasien : antrian) {
-                if (pasien.getStatus().equals(status)) {
-                fileOutput.write(System.lineSeparator().getBytes());
-                fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
-                                        pasien.getNomor(),
-                                        pasien.getNama(),
-                                        pasien.getWaktu(),
-                                        pasien.getStatus()).getBytes());
-                continue;
+                if (pasien.getStatus().equals(status) || status.equals("Semua")) {
+                    fileOutput.write(System.lineSeparator().getBytes());
+                    fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
+                                            pasien.getNomor(),
+                                            pasien.getNama(),
+                                            pasien.getWaktu(),
+                                            pasien.getStatus()).getBytes());
                 }
-                fileOutput.write(System.lineSeparator().getBytes());
-                fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
-                                        pasien.getNomor(),
-                                        pasien.getNama(),
-                                        pasien.getWaktu(),
-                                        pasien.getStatus()).getBytes());
             }
             
             fileOutput.close();
@@ -74,9 +68,9 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public void setNomor(int nomor) {
-        this.nomor = nomor;
+    
+    public int getJumlahPasien() {
+        return antrian.size();
     }
     
     public int getNomor() {
@@ -85,10 +79,6 @@ public class Controller {
     
     public Pasien getPasien(int index) {
         return antrian.get(index);
-    }
-    
-    public void setStatus(int index, String Status) {
-        antrian.get(index).setStatus(Status);
     }
     
 }

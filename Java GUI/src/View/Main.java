@@ -6,7 +6,9 @@ package View;
 
 import Controller.Controller;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -17,13 +19,16 @@ public class Main extends javax.swing.JFrame {
     /**
      * Creates new form MainMenu
      */
+    DefaultTableCellRenderer tableRenderer = new DefaultTableCellRenderer();
     Controller controller = new Controller();
     DefaultTableModel tabel;
     
     public Main() {
         
         initComponents();
+        tableRenderer.setHorizontalAlignment(JLabel.CENTER);
         tabel = (DefaultTableModel) tabelAntrian.getModel();
+        tabelAntrian.setDefaultRenderer(String.class, tableRenderer);
         tabelAntrian.getColumnModel().getColumn(0).setPreferredWidth(50);
         tabelAntrian.getColumnModel().getColumn(0).setMaxWidth(50);
         tabelAntrian.getColumnModel().getColumn(1).setPreferredWidth(50);
@@ -43,73 +48,73 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        sidebar = new javax.swing.JPanel();
+        navbar = new javax.swing.JPanel();
         logoAplikasi = new javax.swing.JLabel();
-        logOut = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
         mainMenu = new javax.swing.JPanel();
-        heading = new javax.swing.JLabel();
+        judul = new javax.swing.JLabel();
         scrollPane = new javax.swing.JScrollPane();
         tabelAntrian = new javax.swing.JTable();
-        addPasien = new javax.swing.JButton();
-        callPasien = new javax.swing.JButton();
-        resetAntrian = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
+        panggilButton = new javax.swing.JButton();
+        resetButton = new javax.swing.JButton();
         filter = new javax.swing.JComboBox<>();
-        saveTXT = new javax.swing.JButton();
-        nextPasien = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
         selesaiButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(100, 63, 65));
         setPreferredSize(new java.awt.Dimension(900, 600));
 
-        sidebar.setBackground(new java.awt.Color(0, 153, 153));
-        sidebar.setForeground(new java.awt.Color(100, 63, 65));
-        sidebar.setMinimumSize(new java.awt.Dimension(0, 0));
-        sidebar.setPreferredSize(new java.awt.Dimension(200, 440));
-        sidebar.setRequestFocusEnabled(false);
+        navbar.setBackground(new java.awt.Color(0, 153, 153));
+        navbar.setForeground(new java.awt.Color(100, 63, 65));
+        navbar.setMinimumSize(new java.awt.Dimension(0, 0));
+        navbar.setPreferredSize(new java.awt.Dimension(200, 440));
+        navbar.setRequestFocusEnabled(false);
 
         logoAplikasi.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
         logoAplikasi.setForeground(new java.awt.Color(255, 255, 255));
         logoAplikasi.setText("MyAntrian");
 
-        logOut.setBackground(new java.awt.Color(255, 255, 255));
-        logOut.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
-        logOut.setForeground(new java.awt.Color(0, 0, 0));
-        logOut.setText("Logout");
-        logOut.setFocusPainted(false);
-        logOut.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setBackground(new java.awt.Color(255, 255, 255));
+        logoutButton.setFont(new java.awt.Font("Poppins Medium", 0, 10)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(0, 0, 0));
+        logoutButton.setText("Logout");
+        logoutButton.setFocusPainted(false);
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logOutActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout sidebarLayout = new javax.swing.GroupLayout(sidebar);
-        sidebar.setLayout(sidebarLayout);
-        sidebarLayout.setHorizontalGroup(
-            sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidebarLayout.createSequentialGroup()
+        javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
+        navbar.setLayout(navbarLayout);
+        navbarLayout.setHorizontalGroup(
+            navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navbarLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(logoAplikasi)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(logOut)
+                .addComponent(logoutButton)
                 .addGap(30, 30, 30))
         );
-        sidebarLayout.setVerticalGroup(
-            sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidebarLayout.createSequentialGroup()
+        navbarLayout.setVerticalGroup(
+            navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(navbarLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(sidebarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(logoAplikasi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(logoutButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(20, 20, 20))
         );
 
         mainMenu.setBackground(new java.awt.Color(255, 255, 255));
         mainMenu.setForeground(new java.awt.Color(255, 255, 255));
 
-        heading.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
-        heading.setForeground(new java.awt.Color(0, 0, 0));
-        heading.setText("Layanan Antrian Pasien");
+        judul.setFont(new java.awt.Font("SF Pro Display", 1, 24)); // NOI18N
+        judul.setForeground(new java.awt.Color(0, 0, 0));
+        judul.setText("Layanan Antrian Pasien");
 
         scrollPane.setBackground(new java.awt.Color(255, 255, 255));
         scrollPane.setForeground(new java.awt.Color(255, 255, 255));
@@ -125,7 +130,7 @@ public class Main extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Boolean.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 true, false, false, false, false
@@ -151,33 +156,33 @@ public class Main extends javax.swing.JFrame {
         });
         scrollPane.setViewportView(tabelAntrian);
 
-        addPasien.setBackground(new java.awt.Color(0, 102, 102));
-        addPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        addPasien.setForeground(new java.awt.Color(255, 255, 255));
-        addPasien.setText("Tambah Pasien");
-        addPasien.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setBackground(new java.awt.Color(0, 102, 102));
+        addButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        addButton.setForeground(new java.awt.Color(255, 255, 255));
+        addButton.setText("Tambah Pasien");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addPasienActionPerformed(evt);
+                addButtonActionPerformed(evt);
             }
         });
 
-        callPasien.setBackground(new java.awt.Color(208, 198, 198));
-        callPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        callPasien.setForeground(new java.awt.Color(255, 255, 255));
-        callPasien.setText("Panggil Pasien");
-        callPasien.addActionListener(new java.awt.event.ActionListener() {
+        panggilButton.setBackground(new java.awt.Color(208, 198, 198));
+        panggilButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        panggilButton.setForeground(new java.awt.Color(255, 255, 255));
+        panggilButton.setText("Panggil Pasien");
+        panggilButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                callPasienActionPerformed(evt);
+                panggilButtonActionPerformed(evt);
             }
         });
 
-        resetAntrian.setBackground(new java.awt.Color(0, 102, 102));
-        resetAntrian.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        resetAntrian.setForeground(new java.awt.Color(255, 255, 255));
-        resetAntrian.setText("Reset Antrian");
-        resetAntrian.addActionListener(new java.awt.event.ActionListener() {
+        resetButton.setBackground(new java.awt.Color(0, 102, 102));
+        resetButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        resetButton.setForeground(new java.awt.Color(255, 255, 255));
+        resetButton.setText("Reset Antrian");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                resetAntrianActionPerformed(evt);
+                resetButtonActionPerformed(evt);
             }
         });
 
@@ -185,24 +190,29 @@ public class Main extends javax.swing.JFrame {
         filter.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
         filter.setForeground(new java.awt.Color(255, 255, 255));
         filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua", "Dalam Antrian", "Sedang Periksa", "Sudah Selesai" }));
-
-        saveTXT.setBackground(new java.awt.Color(0, 102, 102));
-        saveTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        saveTXT.setForeground(new java.awt.Color(255, 255, 255));
-        saveTXT.setText("Save keTXT");
-        saveTXT.addActionListener(new java.awt.event.ActionListener() {
+        filter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveTXTActionPerformed(evt);
+                filterActionPerformed(evt);
             }
         });
 
-        nextPasien.setBackground(new java.awt.Color(0, 102, 102));
-        nextPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        nextPasien.setForeground(new java.awt.Color(255, 255, 255));
-        nextPasien.setText("Panggil Selanjutnya");
-        nextPasien.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setBackground(new java.awt.Color(0, 102, 102));
+        saveButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        saveButton.setForeground(new java.awt.Color(255, 255, 255));
+        saveButton.setText("Save ke TXT");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nextPasienActionPerformed(evt);
+                saveButtonActionPerformed(evt);
+            }
+        });
+
+        nextButton.setBackground(new java.awt.Color(0, 102, 102));
+        nextButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
+        nextButton.setText("Panggil Selanjutnya");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
             }
         });
 
@@ -222,42 +232,42 @@ public class Main extends javax.swing.JFrame {
             mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, mainMenuLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(heading)
+                .addComponent(judul)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(mainMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scrollPane)
                     .addGroup(mainMenuLayout.createSequentialGroup()
-                        .addComponent(filter, 0, 73, Short.MAX_VALUE)
+                        .addComponent(filter, 0, 71, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(saveTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(resetAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(resetButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(selesaiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(callPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panggilButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(nextPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nextButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(addPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(30, 30, 30))
         );
         mainMenuLayout.setVerticalGroup(
             mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainMenuLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(heading)
+                .addComponent(judul)
                 .addGap(30, 30, 30)
                 .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveTXT)
-                    .addComponent(callPasien)
+                    .addComponent(saveButton)
+                    .addComponent(panggilButton)
                     .addComponent(selesaiButton)
-                    .addComponent(nextPasien)
-                    .addComponent(addPasien)
-                    .addComponent(resetAntrian))
+                    .addComponent(nextButton)
+                    .addComponent(addButton)
+                    .addComponent(resetButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -267,13 +277,13 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(navbar, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
             .addComponent(mainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(sidebar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(navbar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(mainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -282,12 +292,12 @@ public class Main extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_logOutActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
-    private void addPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPasienActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         // TODO add your handling code here:
 
         String nama = "";
@@ -305,34 +315,36 @@ public class Main extends javax.swing.JFrame {
             controller.getPasien(controller.getNomor()).getStatus()
         });
         
-    }//GEN-LAST:event_addPasienActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
 
     private void tabelAntrianMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelAntrianMouseReleased
         // TODO add your handling code here:
+        boolean panggilButton = false;
+        boolean selesaiButton = false;
+        
         for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
             if((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Dalam Antrian")) {
-                callPasien.setBackground(Color.decode("#006666"));
-                break;
+                panggilButton = true;
             } else if ((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Sedang Periksa")) {
-                selesaiButton.setBackground(Color.decode("#006666"));
-                break;
-            } else {
-                callPasien.setBackground(Color.decode("#D0C6C6"));
-                selesaiButton.setBackground(Color.decode("#D0C6C6"));
-            } 
+                selesaiButton = true;
+            }
         }
+        
+        this.panggilButton.setBackground(panggilButton ? Color.decode("#006666") : Color.decode("#D0C6C6"));
+        this.selesaiButton.setBackground(selesaiButton ? Color.decode("#006666") : Color.decode("#D0C6C6"));
+        
     }//GEN-LAST:event_tabelAntrianMouseReleased
 
-    private void saveTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveTXTActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         // TODO add your handling code here:
         controller.saveTXT(filter.getSelectedItem().toString());
-    }//GEN-LAST:event_saveTXTActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
 
-    private void nextPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPasienActionPerformed
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
         for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
             if(tabelAntrian.getValueAt(i, 4).toString().equals("Dalam Antrian")) {
-                controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sedang Periksa");
+                controller.getPasien((int)tabel.getValueAt(i, 1) - 1).setStatus("Sedang Periksa");
                 tabel.insertRow(i, new Object[] {false,
                 controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
                 controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
@@ -340,24 +352,24 @@ public class Main extends javax.swing.JFrame {
                 controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getStatus()
                 });
                 tabel.removeRow(i + 1);
+                panggilButton.setBackground(Color.decode("#D0C6C6"));
                 break;
             }
         }
-    }//GEN-LAST:event_nextPasienActionPerformed
+    }//GEN-LAST:event_nextButtonActionPerformed
 
-    private void resetAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAntrianActionPerformed
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
         tabel.setRowCount(0);
-        controller.setNomor(0);
         controller.flushPasien();
-    }//GEN-LAST:event_resetAntrianActionPerformed
+    }//GEN-LAST:event_resetButtonActionPerformed
 
-    private void callPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callPasienActionPerformed
+    private void panggilButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panggilButtonActionPerformed
         // TODO add your handling code here:
-        if (callPasien.getBackground().getRGB() == -16751002) {
+        if (panggilButton.getBackground().getRGB() == -16751002) {
             for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
-                if((boolean) tabelAntrian.getValueAt(i, 0)) {
-                    controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sedang Periksa");
+                if((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Dalam Antrian")) {
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).setStatus("Sedang Periksa");
                     tabel.insertRow(i, new Object[] {false,
                     controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
                     controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
@@ -368,15 +380,15 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         }
-        callPasien.setBackground(Color.decode("#D0C6C6"));
-    }//GEN-LAST:event_callPasienActionPerformed
+        panggilButton.setBackground(Color.decode("#D0C6C6"));
+    }//GEN-LAST:event_panggilButtonActionPerformed
 
     private void selesaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selesaiButtonActionPerformed
         // TODO add your handling code here:
-                if (callPasien.getBackground().getRGB() == -16751002) {
+                if (selesaiButton.getBackground().getRGB() == -16751002) {
             for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
-                if((boolean) tabelAntrian.getValueAt(i, 0)) {
-                    controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sudah Selesai");
+                if((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Sedang Periksa")) {
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).setStatus("Sudah Selesai");
                     tabel.insertRow(i, new Object[] {false,
                     controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
                     controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
@@ -387,8 +399,23 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         }
-        callPasien.setBackground(Color.decode("#D0C6C6"));
+        selesaiButton.setBackground(Color.decode("#D0C6C6"));
     }//GEN-LAST:event_selesaiButtonActionPerformed
+
+    private void filterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filterActionPerformed
+        // TODO add your handling code here:
+        tabel.setRowCount(0);
+        for (int i = 0; i < controller.getJumlahPasien(); i++) {
+            if(controller.getPasien(i).getStatus().equals(filter.getSelectedItem().toString()) || 
+               filter.getSelectedItem().toString().equals("Semua") ) {
+                tabel.addRow(new Object[] {false,
+                            controller.getPasien(i).getNomor(),
+                            controller.getPasien(i).getNama(),    
+                            controller.getPasien(i).getWaktu(),
+                            controller.getPasien(i).getStatus()});
+            }
+        }
+    }//GEN-LAST:event_filterActionPerformed
 
     /**
      * @param args the command line arguments
@@ -404,19 +431,19 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addPasien;
-    private javax.swing.JButton callPasien;
+    private javax.swing.JButton addButton;
     private javax.swing.JComboBox<String> filter;
-    private javax.swing.JLabel heading;
-    private javax.swing.JButton logOut;
+    private javax.swing.JLabel judul;
     private javax.swing.JLabel logoAplikasi;
+    private javax.swing.JButton logoutButton;
     private javax.swing.JPanel mainMenu;
-    private javax.swing.JButton nextPasien;
-    private javax.swing.JButton resetAntrian;
-    private javax.swing.JButton saveTXT;
+    private javax.swing.JPanel navbar;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JButton panggilButton;
+    private javax.swing.JButton resetButton;
+    private javax.swing.JButton saveButton;
     private javax.swing.JScrollPane scrollPane;
     private javax.swing.JButton selesaiButton;
-    private javax.swing.JPanel sidebar;
     private javax.swing.JTable tabelAntrian;
     // End of variables declaration//GEN-END:variables
 }
