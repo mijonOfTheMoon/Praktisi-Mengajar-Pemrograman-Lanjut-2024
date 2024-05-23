@@ -54,11 +54,13 @@ public class Main extends javax.swing.JFrame {
         callPasien = new javax.swing.JButton();
         resetAntrian = new javax.swing.JButton();
         filter = new javax.swing.JComboBox<>();
-        exportTXT = new javax.swing.JButton();
+        saveTXT = new javax.swing.JButton();
         nextPasien = new javax.swing.JButton();
+        selesaiButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(100, 63, 65));
+        setPreferredSize(new java.awt.Dimension(900, 600));
 
         sidebar.setBackground(new java.awt.Color(0, 153, 153));
         sidebar.setForeground(new java.awt.Color(100, 63, 65));
@@ -163,24 +165,34 @@ public class Main extends javax.swing.JFrame {
         callPasien.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
         callPasien.setForeground(new java.awt.Color(255, 255, 255));
         callPasien.setText("Panggil Pasien");
+        callPasien.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                callPasienActionPerformed(evt);
+            }
+        });
 
         resetAntrian.setBackground(new java.awt.Color(0, 102, 102));
         resetAntrian.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
         resetAntrian.setForeground(new java.awt.Color(255, 255, 255));
         resetAntrian.setText("Reset Antrian");
+        resetAntrian.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetAntrianActionPerformed(evt);
+            }
+        });
 
         filter.setBackground(new java.awt.Color(0, 102, 102));
         filter.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
         filter.setForeground(new java.awt.Color(255, 255, 255));
         filter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Semua", "Dalam Antrian", "Sedang Periksa", "Sudah Selesai" }));
 
-        exportTXT.setBackground(new java.awt.Color(0, 102, 102));
-        exportTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
-        exportTXT.setForeground(new java.awt.Color(255, 255, 255));
-        exportTXT.setText("Export ke TXT");
-        exportTXT.addActionListener(new java.awt.event.ActionListener() {
+        saveTXT.setBackground(new java.awt.Color(0, 102, 102));
+        saveTXT.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        saveTXT.setForeground(new java.awt.Color(255, 255, 255));
+        saveTXT.setText("Save keTXT");
+        saveTXT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exportTXTActionPerformed(evt);
+                saveTXTActionPerformed(evt);
             }
         });
 
@@ -191,6 +203,16 @@ public class Main extends javax.swing.JFrame {
         nextPasien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nextPasienActionPerformed(evt);
+            }
+        });
+
+        selesaiButton.setBackground(new java.awt.Color(208, 198, 198));
+        selesaiButton.setFont(new java.awt.Font("Poppins SemiBold", 0, 10)); // NOI18N
+        selesaiButton.setForeground(new java.awt.Color(255, 255, 255));
+        selesaiButton.setText("Selesai Periksa");
+        selesaiButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selesaiButtonActionPerformed(evt);
             }
         });
 
@@ -207,13 +229,15 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(scrollPane)
                     .addGroup(mainMenuLayout.createSequentialGroup()
-                        .addComponent(filter, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(filter, 0, 73, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(exportTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(callPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(saveTXT, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(resetAntrian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(selesaiButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(callPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(nextPasien, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -227,14 +251,15 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(heading)
                 .addGap(30, 30, 30)
                 .addGroup(mainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addPasien)
+                    .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveTXT)
                     .addComponent(callPasien)
-                    .addComponent(filter)
-                    .addComponent(resetAntrian)
+                    .addComponent(selesaiButton)
                     .addComponent(nextPasien)
-                    .addComponent(exportTXT))
+                    .addComponent(addPasien)
+                    .addComponent(resetAntrian))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                .addComponent(scrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 263, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
         );
 
@@ -242,7 +267,7 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 737, Short.MAX_VALUE)
+            .addComponent(sidebar, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
             .addComponent(mainMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -254,6 +279,7 @@ public class Main extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void logOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutActionPerformed
@@ -276,7 +302,7 @@ public class Main extends javax.swing.JFrame {
             controller.getPasien(controller.getNomor()).getNomor(),
             controller.getPasien(controller.getNomor()).getNama(),    
             controller.getPasien(controller.getNomor()).getWaktu(),
-            controller.getPasien(controller.getNomor()).getStatus(),
+            controller.getPasien(controller.getNomor()).getStatus()
         });
         
     }//GEN-LAST:event_addPasienActionPerformed
@@ -284,22 +310,85 @@ public class Main extends javax.swing.JFrame {
     private void tabelAntrianMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelAntrianMouseReleased
         // TODO add your handling code here:
         for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
-            if((boolean) tabelAntrian.getValueAt(i, 0)) {
+            if((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Dalam Antrian")) {
                 callPasien.setBackground(Color.decode("#006666"));
+                break;
+            } else if ((boolean) tabelAntrian.getValueAt(i, 0) && tabelAntrian.getValueAt(i, 4).toString().equals("Sedang Periksa")) {
+                selesaiButton.setBackground(Color.decode("#006666"));
                 break;
             } else {
                 callPasien.setBackground(Color.decode("#D0C6C6"));
-            }    
+                selesaiButton.setBackground(Color.decode("#D0C6C6"));
+            } 
         }
     }//GEN-LAST:event_tabelAntrianMouseReleased
 
-    private void exportTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exportTXTActionPerformed
+    private void saveTXTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveTXTActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_exportTXTActionPerformed
+        controller.saveTXT(filter.getSelectedItem().toString());
+    }//GEN-LAST:event_saveTXTActionPerformed
 
     private void nextPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextPasienActionPerformed
         // TODO add your handling code here:
+        for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
+            if(tabelAntrian.getValueAt(i, 4).toString().equals("Dalam Antrian")) {
+                controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sedang Periksa");
+                tabel.insertRow(i, new Object[] {false,
+                controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
+                controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
+                controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getWaktu(),
+                controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getStatus()
+                });
+                tabel.removeRow(i + 1);
+                break;
+            }
+        }
     }//GEN-LAST:event_nextPasienActionPerformed
+
+    private void resetAntrianActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetAntrianActionPerformed
+        // TODO add your handling code here:
+        tabel.setRowCount(0);
+        controller.setNomor(0);
+        controller.flushPasien();
+    }//GEN-LAST:event_resetAntrianActionPerformed
+
+    private void callPasienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_callPasienActionPerformed
+        // TODO add your handling code here:
+        if (callPasien.getBackground().getRGB() == -16751002) {
+            for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
+                if((boolean) tabelAntrian.getValueAt(i, 0)) {
+                    controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sedang Periksa");
+                    tabel.insertRow(i, new Object[] {false,
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getWaktu(),
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getStatus()
+                    });
+                    tabel.removeRow(i + 1);
+                }
+            }
+        }
+        callPasien.setBackground(Color.decode("#D0C6C6"));
+    }//GEN-LAST:event_callPasienActionPerformed
+
+    private void selesaiButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selesaiButtonActionPerformed
+        // TODO add your handling code here:
+                if (callPasien.getBackground().getRGB() == -16751002) {
+            for(int i = 0; i < tabelAntrian.getRowCount(); i++) {
+                if((boolean) tabelAntrian.getValueAt(i, 0)) {
+                    controller.setStatus((int)tabel.getValueAt(i, 1) - 1, "Sudah Selesai");
+                    tabel.insertRow(i, new Object[] {false,
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNomor(),
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getNama(),    
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getWaktu(),
+                    controller.getPasien((int)tabel.getValueAt(i, 1) - 1).getStatus()
+                    });
+                    tabel.removeRow(i + 1);
+                }
+            }
+        }
+        callPasien.setBackground(Color.decode("#D0C6C6"));
+    }//GEN-LAST:event_selesaiButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -317,7 +406,6 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addPasien;
     private javax.swing.JButton callPasien;
-    private javax.swing.JButton exportTXT;
     private javax.swing.JComboBox<String> filter;
     private javax.swing.JLabel heading;
     private javax.swing.JButton logOut;
@@ -325,7 +413,9 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel mainMenu;
     private javax.swing.JButton nextPasien;
     private javax.swing.JButton resetAntrian;
+    private javax.swing.JButton saveTXT;
     private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JButton selesaiButton;
     private javax.swing.JPanel sidebar;
     private javax.swing.JTable tabelAntrian;
     // End of variables declaration//GEN-END:variables

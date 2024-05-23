@@ -5,7 +5,13 @@
 package Controller;
 
 import Model.Pasien;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -20,13 +26,69 @@ public class Controller {
         nomor++;
         antrian.add(new Pasien(nama, nomor));
     }
+    
+    public void flushPasien() {
+        antrian.clear();
+    }
+    
+    public void saveTXT(String status) {
+        JFileChooser saver = new JFileChooser();
+        saver.showSaveDialog(saver);
+        
+        File file = saver.getSelectedFile();
+        
 
+        try {
+            file.createNewFile();
+            FileOutputStream fileOutput = new FileOutputStream(file);
+            
+            fileOutput.write(System.lineSeparator().getBytes());
+            fileOutput.write("=============================== Daftar Antrian Pasien ===============================".getBytes());
+            fileOutput.write(System.lineSeparator().getBytes());
+            fileOutput.write("-------------------------------------------------------------------------------------".getBytes());
+            fileOutput.write(System.lineSeparator().getBytes());
+            fileOutput.write("| No. | Nama Pasien          | Waktu Pengambilan Nomor Antrian |       Status       |".getBytes());
+            fileOutput.write(System.lineSeparator().getBytes());
+            fileOutput.write("-------------------------------------------------------------------------------------".getBytes());
+            
+            for(Pasien pasien : antrian) {
+                if (pasien.getStatus().equals(status)) {
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
+                                        pasien.getNomor(),
+                                        pasien.getNama(),
+                                        pasien.getWaktu(),
+                                        pasien.getStatus()).getBytes());
+                continue;
+                }
+                fileOutput.write(System.lineSeparator().getBytes());
+                fileOutput.write(String.format("| %-3s | %-20.20s | %-31s | %-18s |\n",
+                                        pasien.getNomor(),
+                                        pasien.getNama(),
+                                        pasien.getWaktu(),
+                                        pasien.getStatus()).getBytes());
+            }
+            
+            fileOutput.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void setNomor(int nomor) {
+        this.nomor = nomor;
+    }
+    
     public int getNomor() {
         return nomor - 1;
     }
     
     public Pasien getPasien(int index) {
         return antrian.get(index);
+    }
+    
+    public void setStatus(int index, String Status) {
+        antrian.get(index).setStatus(Status);
     }
     
 }
