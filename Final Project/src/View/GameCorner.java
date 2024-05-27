@@ -483,7 +483,7 @@ public class GameCorner extends javax.swing.JFrame {
         );
 
         tabelDashAdm.setBackground(new java.awt.Color(255, 255, 255));
-        tabelDashAdm.setFont(new java.awt.Font("SF Pro Display", 0, 12)); 
+        tabelDashAdm.setFont(new java.awt.Font("Calibri", 0, 13));
         tabelDashAdm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -546,6 +546,7 @@ public class GameCorner extends javax.swing.JFrame {
 
         tabelRentalAdm.setBackground(new java.awt.Color(255, 255, 255));
         tabelRentalAdm.setForeground(new java.awt.Color(0, 0, 0));
+        tabelRentalAdm.setFont(new java.awt.Font("Calibri", 0, 13));
         tabelRentalAdm.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -661,6 +662,7 @@ public class GameCorner extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelTVAdm.setFont(new java.awt.Font("Calibri", 0, 13));
         tabelTVAdm.setFillsViewportHeight(true);
         tabelTVAdm.setRowHeight(35);
         tabelTVAdm.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -774,6 +776,7 @@ public class GameCorner extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabelUsrAdm.setFont(new java.awt.Font("Calibri", 0, 13));
         tabelUsrAdm.setFillsViewportHeight(true);
         tabelUsrAdm.setRowHeight(35);
         tabelUsrAdm.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -910,14 +913,17 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldIdAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldIdAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldIdAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldIdAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldNamaAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldNamaAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNamaAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNamaAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldNomorAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldNomorAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNomorAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNomorAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldRoleAdd.setBackground(new java.awt.Color(255, 255, 255));
@@ -933,6 +939,7 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldUnameAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldUnameAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldUnameAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldUnameAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         fieldUnameAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -942,6 +949,7 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldPwordAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldPwordAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldPwordAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldPwordAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         alertNamaAdd.setFont(new java.awt.Font("Poppins Light", 0, 10)); 
@@ -1111,14 +1119,17 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldIDEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldIDEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldIDEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldIDEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldNameEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldNameEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNameEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNameEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldNomorEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldNomorEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNomorEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNomorEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldRoleEdit.setBackground(new java.awt.Color(255, 255, 255));
@@ -1134,10 +1145,12 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldUnameEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldUnameEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldUnameEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldUnameEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldPwordEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldPwordEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldPwordEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldPwordEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         alertNamaEdit.setFont(new java.awt.Font("Poppins Light", 0, 10)); 
@@ -1296,6 +1309,7 @@ public class GameCorner extends javax.swing.JFrame {
         fieldNoTVAdd.setEditable(false);
         fieldNoTVAdd.setBackground(new java.awt.Color(242, 242, 242));
         fieldNoTVAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNoTVAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNoTVAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldStatTVAdd.setBackground(new java.awt.Color(255, 255, 255));
@@ -1413,17 +1427,20 @@ public class GameCorner extends javax.swing.JFrame {
         fieldNoTVEdit.setEditable(false);
         fieldNoTVEdit.setBackground(new java.awt.Color(242, 242, 242));
         fieldNoTVEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldNoTVEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldNoTVEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldStatTVEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldStatTVEdit.setFont(new java.awt.Font("Calibri", 0, 12)); 
         fieldStatTVEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldStatTVEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldStatTVEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tersedia", "Dalam Perbaikan" }));
         fieldStatTVEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         fieldJenisTVEdit.setBackground(new java.awt.Color(255, 255, 255));
         fieldJenisTVEdit.setFont(new java.awt.Font("Calibri", 0, 12)); 
         fieldJenisTVEdit.setForeground(new java.awt.Color(0, 0, 0));
+        fieldJenisTVEdit.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldJenisTVEdit.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PS 5", "XBOX", "PC" }));
         fieldJenisTVEdit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1530,6 +1547,7 @@ public class GameCorner extends javax.swing.JFrame {
 
         fieldIDPinjamAdd.setBackground(new java.awt.Color(255, 255, 255));
         fieldIDPinjamAdd.setForeground(new java.awt.Color(0, 0, 0));
+        fieldIDPinjamAdd.setFont(new java.awt.Font("Calibri", 0, 12));
         fieldIDPinjamAdd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         alertNamaPinjamAdd.setFont(new java.awt.Font("Poppins Light", 0, 10)); 
