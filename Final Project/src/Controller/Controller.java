@@ -153,17 +153,17 @@ public class Controller {
     }
 
     public String getSisaWaktu(Peminjaman pinjamanAktif) {
-        SimpleDateFormat format = new SimpleDateFormat("mm:ss");
+        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
         Date waktuSelesai;
         Date waktuSekarang;
         String sisaWaktu = "";
 
         try {
-            waktuSelesai = format.parse(pinjamanAktif.getSesi().substring(11, 13) + ":00");
-            waktuSekarang = format.parse(format.format(new Date()));
+            waktuSelesai = format.parse(pinjamanAktif.getSesi().substring(8, 13) + ":00");
+            waktuSekarang = new Date();
             long sisa = waktuSelesai.getTime() - waktuSekarang.getTime();
-            long menit = (sisa % 3600000) / 60000;
-            long detik = (sisa % 60000) / 1000;
+            long menit = (sisa / 60000) % 60;
+            long detik = (sisa / 1000) % 60;
             sisaWaktu = String.format("%02d:%02d", 59 + menit, 59 + detik);
             return sisaWaktu;
         } catch (ParseException error) {
