@@ -2102,7 +2102,7 @@ public class GameCorner extends javax.swing.JFrame {
                     try {
                         if (controller.addPeminjaman(
                                 controller.getUser(controller.searchUserId(fieldIDPinjamAdd.getText())),
-                                controller.getTV(Integer.valueOf(fieldNoTVPinjamAdd.getSelectedIndex())),
+                                controller.getTV(Integer.valueOf(fieldNoTVPinjamAdd.getSelectedItem().toString().substring(3)) - 1),
                                 fieldSesiPinjamAdd.getSelectedItem().toString())) {
                             adminPanel.show(mainPanelAdmin, "peminjaman");
                             controller.refreshStatusPeminjaman();
